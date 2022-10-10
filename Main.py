@@ -1,24 +1,50 @@
 class Node:
+  """
+  Class implementing node of the LinkedList
+  Attributes:
+    -> data - data held by the node
+    -> next - link to the next node
+  """
   def __init__(self, data):
     self.data = data
     self.next = None
 
 
 class Stack:
+  """
+  Class implementing Stack as a LinkedList
+  """
   def __init__(self):
+    """
+    Initialises Stack object with head pointer Null
+    """
     self.head = None
 
   def push(self, data) -> None:
-    # Write your code here
+    """
+    Pushes node containing data passed onto the top of the stack
+    """
+    new = Node(data)
+    new.next = self.head
+    self.head = new
 
   def pop(self) -> None:
-    # Write your code here
+    """
+    Pops node from the top of the stack
+    """
+    if not self.head is None:
+      self.head = self.head.next
 
   def status(self):
     """
     It prints all the elements of stack.
     """
-    # Write your code here  
+    elements = ""
+    curr = self.head
+    while curr is not None:
+      elements += str(curr.data) + "=>"
+      curr = curr.next
+    print(elements + "None")
 
 
 # Do not change the following code
